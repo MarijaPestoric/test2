@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Keyboard sound</title>
 </head>
 
@@ -24,16 +25,24 @@
             </div>
             <div id="functions">
                 <div>
-                    <input type="checkbox" name="power" id="power">
+                    <label for="">Power</label> <br>
+                    <label class="switch">
+                        <input type="checkbox" name="power" id="power" checked>
+                        <span class="slider"></span>
+                    </label>
                 </div>
                 <div>
-                    <button value="heater">Heater 2</button>
+                    <button value="heater" id="btn-heater">Heater 2</button>
                 </div>
                 <div>
-                    <input type="scale" id="scale" name="scale">
+                    <input type="range" id="scale" name="scale">
                 </div>
                 <div>
+                    <label for="">Bank</label> <br>
+                    <label class="switch">
                     <input type="checkbox" name="bank" id="bank">
+                    <span class="slider"></span>
+                    </label>
                 </div>
             </div>
         </div>
