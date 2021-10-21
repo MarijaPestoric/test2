@@ -1,7 +1,6 @@
 let getKeyword = document.getElementsByClassName("keyword");
 let getAudio = document.getElementsByClassName("audio");
-for (let index = 0; index < getKeyword.length; index++) {
-  getKeyword[index].addEventListener("click", function () {
+  function playAudio () {
     if (this.value === "Q") {
       getAudio[0].play();
     } else if (this.value === "W") {
@@ -21,7 +20,6 @@ for (let index = 0; index < getKeyword.length; index++) {
     } else if (this.value === "C") {
       getAudio[8].play();
     }
-  });
 }
 
 let power = document.getElementById("power");
@@ -31,7 +29,13 @@ power.addEventListener("change", function () {
   if (power.checked) {
     powerAudio.play();
     getTextOnOrOff.textContent = "On";
+    for (let index = 0; index < getKeyword.length; index++) {
+      getKeyword[index].addEventListener("click", playAudio)
+    }    
   } else {
     getTextOnOrOff.textContent = "Off";
+    for (let index = 0; index < getKeyword.length; index++) {
+      getKeyword[index].removeEventListener("click", playAudio)
+  }
   }
 });
