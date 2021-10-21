@@ -1,41 +1,61 @@
 let getKeyword = document.getElementsByClassName("keyword");
 let getAudio = document.getElementsByClassName("audio");
-  function playAudio () {
-    if (this.value === "Q") {
-      getAudio[0].play();
-    } else if (this.value === "W") {
-      getAudio[1].play();
-    } else if (this.value === "E") {
-      getAudio[2].play();
-    } else if (this.value === "A") {
-      getAudio[3].play();
-    } else if (this.value === "S") {
-      getAudio[4].play();
-    } else if (this.value === "D") {
-      getAudio[5].play();
-    } else if (this.value === "Z") {
-      getAudio[6].play();
-    } else if (this.value === "X") {
-      getAudio[7].play();
-    } else if (this.value === "C") {
-      getAudio[8].play();
-    }
-}
-
 let power = document.getElementById("power");
 let powerAudio = document.getElementById("audioPower");
 let getTextOnOrOff = document.getElementById("text");
+let heater = document.getElementById('btn-heater');
+
 power.addEventListener("change", function () {
   if (power.checked) {
     powerAudio.play();
     getTextOnOrOff.textContent = "On";
-    for (let index = 0; index < getKeyword.length; index++) {
-      getKeyword[index].addEventListener("click", playAudio)
+    getTextOnOrOff.style.color = "green";
+      for (let index = 0; index < getKeyword.length; index++) {
+      getKeyword[index].addEventListener("click", playAudio);
+      document.addEventListener("keypress", sound);
     }    
   } else {
     getTextOnOrOff.textContent = "Off";
+    getTextOnOrOff.style.color = "red";
     for (let index = 0; index < getKeyword.length; index++) {
-      getKeyword[index].removeEventListener("click", playAudio)
+      getKeyword[index].removeEventListener("click", playAudio);
+      document.removeEventListener("keypress", sound);
   }
   }
 });
+function sound(event){
+  playAudio(event.key);
+};
+
+  function playAudio (key) {
+    if (this.value === "Q" || key === "q") {
+      getAudio[0].play(); 
+      heater.textContent = this.id;
+    } else if (this.value === "W" || key === "w") {
+      getAudio[1].play();
+      heater.textContent = this.id;
+    } else if (this.value === "E" || key === "e") {
+      getAudio[2].play();
+      heater.textContent = this.id;
+    } else if (this.value === "A" || key === "a") {
+      getAudio[3].play();
+      heater.textContent = this.id;
+    } else if (this.value === "S" || key === "s") {
+      getAudio[4].play();
+      heater.textContent = this.id;
+    } else if (this.value === "D" || key === "d") {
+      getAudio[5].play();
+      heater.textContent = this.id;
+    } else if (this.value === "Z" || key === "z") {
+      getAudio[6].play();
+      heater.textContent = this.id;
+    } else if (this.value === "X" || key === "x") {
+      getAudio[7].play();
+      heater.textContent = this.id;
+    } else if (this.value === "C" || key === "c") {
+      getAudio[8].play();
+      heater.textContent = this.id;
+    }
+}
+
+
